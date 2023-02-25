@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\parking\AuthParkingAdminController;
+use App\Http\Controllers\parking\DashboarController;
 use App\Http\Controllers\parking\RegisterParkingAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,9 +30,14 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::prefix('admin/')->name('admin.')->group(function (){
+    Route::get('/registrar-administrador', [RegisterParkingAdminController::class, 'create'])->name('register.parking');
+    Route::post('/registrar-administrador', [RegisterParkingAdminController::class, 'store'])->name('register.parking.store');
 
-Route::get('/registrar-administrador', [RegisterParkingAdminController::class, 'create'])->name('register.adm.parking');
-Route::post('/registrar-administrador', [RegisterParkingAdminController::class, 'store'])->name('register.adm.parking.store');
+    Route::get('/login-administrador', [AuthParkingAdminController::class, 'create'])->name('login.parking');
+    Route::post('/login-administrador', [AuthParkingAdminController::class, 'store'])->name('login.parking.store');
 
-Route::get('/login-administrador', [AuthParkingAdminController::class, 'create'])->name('login.adm.parking');
-Route::post('/login-administrador', [AuthParkingAdminController::class, 'store'])->name('login.adm.parking.store');
+    Route::get('/dashboard-administrador', [DashboarController::class, 'create'])->name('dashboard.parking');
+});
+
+

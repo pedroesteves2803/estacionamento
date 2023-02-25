@@ -2,34 +2,49 @@
 
 namespace App\Http\Controllers\parking;
 
-use App\Actions\Fortify\LoginNewUserParkingAdmin;
 use App\Http\Controllers\Controller;
+use Facade\FlareClient\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AuthParkingAdminController extends Controller
+class DashboarController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view('parking.authParking.login');
+        return View('parking.dashboard');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        if((new LoginNewUserParkingAdmin())->create($request->all())){
-            return redirect()->route('admin.dashboard.parking');
-        };
-
-        return back()->withErrors([
-            'email' => 'Suas credenciais estão incorretas.',
-        ])->onlyInput('email');
+        //
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         //

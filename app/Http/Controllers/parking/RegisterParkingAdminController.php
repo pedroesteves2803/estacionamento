@@ -14,14 +14,14 @@ class RegisterParkingAdminController extends Controller
 
     public function create()
     {
-        return view('authParking.register');
+        return view('parking.authParking.register');
     }
 
-    public function store(Request $request, CreateNewUserParkingAdmin $creator)
+    public function store(Request $request)
     {
-        $creator->create($request->all());
+        (new CreateNewUserParkingAdmin())->create($request->all());
 
-        return redirect()->route('login.adm.parking');
+        return redirect()->route('admin.login.parking');
     }
 
     public function show($id)

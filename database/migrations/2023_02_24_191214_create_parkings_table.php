@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ParkingAdminUser;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,7 @@ class CreateParkingsTable extends Migration
             $table->string('address');
             $table->integer('total_vacancies');
             $table->integer('vacancies_released');
+            $table->foreignIdFor(ParkingAdminUser::class)->nullable();
             $table->timestamps();
         });
     }

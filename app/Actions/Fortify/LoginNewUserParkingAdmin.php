@@ -14,7 +14,6 @@ class LoginNewUserParkingAdmin implements ContractsLoginNewUserParkingAdmin
      * Validate and create a newly registered user.
      *
      * @param  array  $input
-     * @return \App\Models\User
      */
     public function create(array $input)
     {
@@ -23,14 +22,11 @@ class LoginNewUserParkingAdmin implements ContractsLoginNewUserParkingAdmin
             'password' => ['required'],
         ])->validate();
 
-        dd(Auth::attempt($credentials));
-
-        if (Auth::attempt($credentials)) {
+        if ($response = Auth::guard('admin')->attempt($credentials)) {
             request()->session()->regenerate();
-
-            dd('logado');
         }
 
-        dd('erro');
+        return $response;
+
     }
 }
