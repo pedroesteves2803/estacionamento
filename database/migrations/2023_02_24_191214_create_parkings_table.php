@@ -19,8 +19,7 @@ class CreateParkingsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('total_vacancies');
-            $table->integer('vacancies_released');
-            $table->foreignIdFor(ParkingAdminUser::class)->nullable();
+            $table->integer('vacancies_released')->nullable();
             $table->timestamps();
         });
     }

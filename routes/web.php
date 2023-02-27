@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\parking\AuthParkingAdminController;
 use App\Http\Controllers\parking\DashboarController;
+use App\Http\Controllers\parking\RegisterParking;
 use App\Http\Controllers\parking\RegisterParkingAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/registrar-estacionamento', [RegisterParking::class, 'create'])->name('register.parking');
+Route::post('/registrar-estacionamento', [RegisterParking::class, 'store'])->name('register.parking.store');
+
 
 Route::prefix('admin/')->name('admin.')->group(function (){
     Route::get('/registrar-administrador', [RegisterParkingAdminController::class, 'create'])->name('register.parking');
