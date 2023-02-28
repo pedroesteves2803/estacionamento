@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\ParkingAdminUser;
+use App\Models\ParkingAdmin;
 use Livewire\Component;
 
 class ListAdminUsers extends Component
@@ -11,7 +11,7 @@ class ListAdminUsers extends Component
 
     public function render()
     {
-        $this->adminUsers = ParkingAdminUser::all();
+        $this->adminUsers = ParkingAdmin::all();
         return view('livewire.list-admin-users');
     }
 }

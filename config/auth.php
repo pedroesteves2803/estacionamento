@@ -78,7 +78,7 @@ return [
 
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Models\ParkingAdminUser::class,
+            'model' => App\Models\ParkingAdmin::class,
         ],
     ],
 

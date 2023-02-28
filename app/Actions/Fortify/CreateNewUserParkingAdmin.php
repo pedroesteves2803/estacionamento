@@ -3,8 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Contracts\CreateNewUserParkingAdmin as ContractsCreateNewUserParkingAdmin;
-use App\Models\ParkingAdminUser;
-use Illuminate\Support\Facades\Hash;
+use App\Models\ParkingAdmin;
 use Illuminate\Support\Facades\Validator;
 
 class CreateNewUserParkingAdmin implements ContractsCreateNewUserParkingAdmin
@@ -25,7 +24,7 @@ class CreateNewUserParkingAdmin implements ContractsCreateNewUserParkingAdmin
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return ParkingAdminUser::create([
+        return ParkingAdmin::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => bcrypt($input['password']),
