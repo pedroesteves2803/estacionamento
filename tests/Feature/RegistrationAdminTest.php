@@ -50,17 +50,4 @@ class RegistrationAdminTest extends TestCase
 
         $response->assertRedirect(route('admin.login.parking'));
     }
-
-    public function test_login_administration()
-    {
-        $user = User::factory()->create();
-
-        $response = $this->post('/admin/login-administrador', [
-            'email' => $user->email,
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
-        ]);
-
-        $response->assertRedirect(route('admin.dashboard.parking'));
-
-    }
 }

@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Contracts\CreateNewUserParkingAdmin as ContractsCreateNewUserParkingAdmin;
+use App\Models\Parking;
 use App\Models\ParkingAdmin;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,11 +17,11 @@ class CreateNewUserParkingAdmin implements ContractsCreateNewUserParkingAdmin
      * @param  array  $input
      * @return \App\Models\User
      */
-    public function create(array $input)
+    public function create(array $input, Parking $parking)
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:parking_admin_users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:parking_admins'],
             'password' => $this->passwordRules(),
         ])->validate();
 
@@ -28,6 +29,7 @@ class CreateNewUserParkingAdmin implements ContractsCreateNewUserParkingAdmin
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => bcrypt($input['password']),
+            'parking_id' => $parking->id,
         ]);
     }
 }

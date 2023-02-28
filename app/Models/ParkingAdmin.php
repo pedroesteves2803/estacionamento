@@ -9,7 +9,7 @@ class ParkingAdmin extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'parking_admin_users';
+    // protected $table = 'parking_admin_users';
 
     protected $fillable = [
         'name',

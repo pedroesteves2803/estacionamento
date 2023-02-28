@@ -10,13 +10,43 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Nome') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="name_parking" value="{{ __('Nome') }}" />
+                <x-jet-input id="name_parking" class="block mt-1 w-full" type="text" name="name_parking" :value="old('name_parking')" required autofocus autocomplete="name" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="cnpj" value="{{ __('Cnpj') }}" />
+                <x-jet-input id="cnpj" class="block mt-1 w-full" type="text" name="cnpj" :value="old('cnpj')" required autofocus autocomplete="cnpj" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="cep" value="{{ __('Cep') }}" />
+                <x-jet-input id="cep" class="block mt-1 w-full" type="text" name="cep" :value="old('cep')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="city" value="{{ __('Cidade') }}" />
+                <x-jet-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="address" value="{{ __('Endereço') }}" />
-                <x-jet-input id="address" class="block mt-1 w-full" type="address" name="address" :value="old('address')" required />
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="uf" value="{{ __('UF') }}" />
+                <x-jet-input id="uf" class="block mt-1 w-full" type="text" name="uf" :value="old('uf')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="number" value="{{ __('Numero') }}" />
+                <x-jet-input id="number" class="block mt-1 w-full" type="text" name="number" :value="old('number')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="complement" value="{{ __('complemento') }}" />
+                <x-jet-input id="complement" class="block mt-1 w-full" type="text" name="complement" :value="old('complement')" required />
             </div>
 
             <div class="mt-4">
@@ -24,27 +54,29 @@
                 <x-jet-input id="total_vacancies" class="block mt-1 w-full" type="number" name="total_vacancies" required />
             </div>
 
-            <div class="mt-4">
-                <x-jet-label for="vacancies_released" value="{{ __('Confirmar Senha') }}" />
-                <x-jet-input id="vacancies_released" class="block mt-1 w-full" type="password" name="vacancies_released" required />
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight mt-4 mb-4">
+                Cadastro de administrador
+            </h2>
+
+            <div>
+                <x-jet-label for="name" value="{{ __('Nome') }}" />
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
+            <div class="mt-4">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
 
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
-                        </div>
-                    </x-jet-label>
-                </div>
-            @endif
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Senha') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('admin.login.parking') }}">

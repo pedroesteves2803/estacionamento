@@ -2,9 +2,7 @@
 
 namespace App\Contracts;
 
-use App\Models\Parking;
-
-interface LoginNewUserParkingAdmin
+interface CreateNewParking
 {
     public function create(array $input);
 }

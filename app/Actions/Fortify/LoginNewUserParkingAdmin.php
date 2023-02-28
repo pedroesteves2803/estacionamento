@@ -3,6 +3,7 @@
 namespace App\Actions\Fortify;
 
 use App\Contracts\LoginNewUserParkingAdmin as ContractsLoginNewUserParkingAdmin;
+use App\Models\Parking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 

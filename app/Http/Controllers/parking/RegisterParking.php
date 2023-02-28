@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\parking;
 
+use App\Actions\Fortify\CreateNewParking;
+use App\Actions\Fortify\CreateNewUserParkingAdmin;
+use App\Actions\Fortify\LoginNewUserParkingAdmin;
+use App\Exceptions\ErrorCreateParking;
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 
 class RegisterParking extends Controller
@@ -35,7 +40,16 @@ class RegisterParking extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            if($parking = (new CreateNewParking())->create($request->all())){
+                (new CreateNewUserParkingAdmin())->create($request->all(), $parking);
+                return redirect()->route('admin.login.parking');
+            };
+        }catch(ErrorCreateParking $e){
+            return back()->withErrors([
+                'name' => 'Erro ao criar estacionamento, tente novamente!',
+            ])->onlyInput('name');
+        }
     }
 
     /**

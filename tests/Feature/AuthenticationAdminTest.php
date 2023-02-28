@@ -2,9 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\Parking;
 use App\Models\ParkingAdmin;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

@@ -11,7 +11,13 @@ class Parking extends Model
 
     protected $fillable = [
         'name',
+        'cnpj',
+        'cep',
+        'city',
         'address',
+        'uf',
+        'number',
+        'complement',
         'total_vacancies',
         'vacancies_released',
     ];
