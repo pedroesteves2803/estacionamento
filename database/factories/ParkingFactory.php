@@ -15,8 +15,14 @@ class ParkingFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'address' =>  $this->faker->name(),
-            'total_vacancies' =>  10
+            'cnpj' => '1232132131',
+            'cep' => 'teste',
+            'city' => 'teste',
+            'address' => 'teste',
+            'uf' => 'teste',
+            'number' => 'etste',
+            'complement' => 'teste',
+            'total_vacancies' => 1100,
         ];
     }
 }
