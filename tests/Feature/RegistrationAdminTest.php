@@ -17,11 +17,18 @@ class RegistrationAdminTest extends TestCase
 
     public function test_administration_registration_screen_renderable()
     {
-        if (! Features::enabled(Features::registration())) {
-            return $this->markTestSkipped('Registration support is not enabled.');
-        }
+        $parking = Parking::factory()->create();
 
-        $response = $this->get('/admin/registrar-administrador');
+        $user = ParkingAdmin::factory()->create();
+
+        $responseLogin = $this->post('/login-administrador', [
+            'email' => $user->email,
+            'password' => 'password',
+        ]);
+
+        $this->isAuthenticated('admin');
+
+        $response = $this->get('admin/registrar-administrador');
 
         $response->assertStatus(200);
     }
@@ -32,7 +39,7 @@ class RegistrationAdminTest extends TestCase
 
         $user = ParkingAdmin::factory()->create();
 
-        $responseLogin = $this->post('admin/login-administrador', [
+        $responseLogin = $this->post('/login-administrador', [
             'email' => $user->email,
             'password' => 'password',
         ]);
@@ -46,6 +53,6 @@ class RegistrationAdminTest extends TestCase
             'password_confirmation' => 'password',
         ]);
 
-        $response->assertRedirect(route('admin.login.parking'));
+        $response->assertRedirect(route('login.parking'));
     }
 }

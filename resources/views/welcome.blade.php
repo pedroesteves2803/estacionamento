@@ -35,6 +35,8 @@
                     @endif
 
                     <a href="{{ route('admin.register.parking') }}" class="text-sm text-gray-700 underline">Register adm</a>
+
+                    <a href="{{ route('login.parking') }}" class="text-sm text-gray-700 underline">Login adm</a>
                 </div>
             @endif
 

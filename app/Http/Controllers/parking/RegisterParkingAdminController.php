@@ -22,7 +22,7 @@ class RegisterParkingAdminController extends Controller
     {
         (new CreateNewUserParkingAdmin())->create($request->all(), Auth::guard('admin')->user()->parking);
 
-        return redirect()->route('admin.login.parking');
+        return redirect()->route('login.parking');
     }
 
     public function show($id)

@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('admin.login.parking.store') }}">
+        <form method="POST" action="{{ route('login.parking.store') }}">
             @csrf
 
             <div>

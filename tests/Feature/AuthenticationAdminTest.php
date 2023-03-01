@@ -12,7 +12,7 @@ class AuthenticationAdminTest extends TestCase
 
     public function test_login_admin_screen_can_be_rendered()
     {
-        $response = $this->get('admin/login-administrador');
+        $response = $this->get('/login-administrador');
 
         $response->assertStatus(200);
     }
@@ -21,7 +21,7 @@ class AuthenticationAdminTest extends TestCase
     {
         $user = ParkingAdmin::factory()->create();
 
-        $response = $this->post('admin/login-administrador', [
+        $response = $this->post('/login-administrador', [
             'email' => $user->email,
             'password' => 'password',
         ]);

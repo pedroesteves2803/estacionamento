@@ -35,6 +35,6 @@ class RegistrationParkingTest extends TestCase
         ]);
 
         $this->isAuthenticated('admin');
-        $response->assertRedirect(route('admin.login.parking'));
+        $response->assertRedirect(route('login.parking'));
     }
 }

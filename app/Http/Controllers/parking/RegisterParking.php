@@ -43,7 +43,7 @@ class RegisterParking extends Controller
         try{
             if($parking = (new CreateNewParking())->create($request->all())){
                 (new CreateNewUserParkingAdmin())->create($request->all(), $parking);
-                return redirect()->route('admin.login.parking');
+                return redirect()->route('login.parking');
             };
         }catch(ErrorCreateParking $e){
             return back()->withErrors([
