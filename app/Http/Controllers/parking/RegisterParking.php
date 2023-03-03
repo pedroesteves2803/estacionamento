@@ -29,7 +29,7 @@ class RegisterParking extends Controller
      */
     public function create()
     {
-        return view('parking.register.register');
+        return view('parking.register.register')->layout('layouts.app-admin');
     }
 
     /**

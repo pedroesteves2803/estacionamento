@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('admin.register.parking') }}" :active="request()->routeIs('admin.register.parking')">
                         {{ __('Cadastrar Administrador') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('admin.register.cars') }}" :active="request()->routeIs('admin.register.cars')">
+                        {{ __('Cadastrar Carro') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

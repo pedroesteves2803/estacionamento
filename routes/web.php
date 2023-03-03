@@ -4,6 +4,8 @@ use App\Http\Controllers\parking\AuthParkingAdminController;
 use App\Http\Controllers\parking\DashboarController;
 use App\Http\Controllers\parking\RegisterParking;
 use App\Http\Controllers\parking\RegisterParkingAdminController;
+use App\Http\Livewire\RegisterCars;
+use App\Http\Livewire\ShowPosts;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,10 +40,12 @@ Route::get('/login-administrador', [AuthParkingAdminController::class, 'create']
 Route::post('/login-administrador', [AuthParkingAdminController::class, 'store'])->name('login.parking.store');
 
 Route::prefix('admin/')->name('admin.')->group(function (){
+    Route::get('/dashboard-administrador', [DashboarController::class, 'create'])->name('dashboard.parking');
+
     Route::get('/registrar-administrador', [RegisterParkingAdminController::class, 'create'])->name('register.parking');
     Route::post('/registrar-administrador', [RegisterParkingAdminController::class, 'store'])->name('register.parking.store');
 
-    Route::get('/dashboard-administrador', [DashboarController::class, 'create'])->name('dashboard.parking');
+    Route::get('/registrar-carro', RegisterCars::class)->name('register.cars');
 });
 
 
